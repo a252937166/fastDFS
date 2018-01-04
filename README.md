@@ -385,7 +385,7 @@ http.tracker_server_port=6666  # tracker 服务器的 http 端口号，必须和
 
 如图（14），依旧上传成功，接下来的关键就是通过HTTP测试文件访问，打开浏览器输入ip地址+文件名看看是否能正常访问该图片： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507225927208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity)
+![这里写图片描述](http://img.blog.csdn.net/20170507225927208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(15)</center>
 
 一切正常~ 至此关于FastDFS在CentOS 7下的部署测试就已经全部完成了。
