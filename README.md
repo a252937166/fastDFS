@@ -171,7 +171,7 @@ service fdfs_storaged start
 
 如图(6)，没有任何问题，data下有256个1级目录，每级目录下又有256个2级子目录，总共65536个文件，新写的文件会以hash的方式被路由到其中某个子目录下，然后将文件数据直接作为一个本地文件存储到该目录中。那么最后我们再看一下storage服务的端口监听情况：
 
-![这里写图片描述](http://img.blog.csdn.net/20170507220034858?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![这里写图片描述](http://img.blog.csdn.net/20170507220034858?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity)
 <center>图(7)</center>
 
 如图(7)，可以看到此时已经正常监听tracker的22122端口和storage的23000端口，至此storage服务器就已经配置完成，确定了storage服务器启动成功后，还有一项工作就是看看storage服务器是否已经登记到 tracker服务器（也可以理解为tracker与storage是否整合成功），运行以下命令：
