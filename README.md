@@ -17,7 +17,7 @@ yum -y install gcc-c++
 
 看到如图(1)的信息说明gcc已经安装成功： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507213451041?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507213451041?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(1)</center>
 
 如果没有装解压工具unzip可以通过以下yum命令进行安装后再解压：
@@ -63,12 +63,12 @@ tar -zxvf fastdfs-5.05.tar.gz
 ./make.sh install
 ```
 
-![这里写图片描述](http://img.blog.csdn.net/20170507215010203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507215010203?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(2)</center>
 
 没有报错就说明安装成功了，在log中我们可以发现安装路径： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507214332554?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507214332554?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(3)</center>
 
 没错，正是安装到了/etc/fdfs中，安装成功后就会生成如上的3个.sample文件（示例配置文件），我们再分别拷贝出3个后面用的正式的配置文件：
@@ -80,7 +80,7 @@ cp tracker.conf.sample tracker.conf
 ```
 再查看一下/etc/fdfs的文件目录：
 
-![这里写图片描述](http://img.blog.csdn.net/20170507214855576?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507214855576?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(4)</center>
 
 至此FastDFS已经安装完毕，接下来的工作就是依次配置Tracker和Storage了。
@@ -128,7 +128,7 @@ netstat -unltp|grep fdfs
 service fdfs_trackerd start
 ```
 
-![这里写图片描述](http://img.blog.csdn.net/20170507214731544?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507214731544?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(5)</center>
 
 Tracker至此就配置好了，接下来就可以配置FastDFS的另一核心——Storage。 
@@ -166,12 +166,12 @@ service fdfs_storaged start
 ```
 如果启动成功，/opt/fastdfs_storage中就可以看到启动后新生成的data和logs目录
 
-![这里写图片描述](http://img.blog.csdn.net/20170507215949302?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507215949302?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(6)</center>
 
 如图(6)，没有任何问题，data下有256个1级目录，每级目录下又有256个2级子目录，总共65536个文件，新写的文件会以hash的方式被路由到其中某个子目录下，然后将文件数据直接作为一个本地文件存储到该目录中。那么最后我们再看一下storage服务的端口监听情况：
 
-![这里写图片描述](http://img.blog.csdn.net/20170507220034858?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507220034858?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(7)</center>
 
 如图(7)，可以看到此时已经正常监听tracker的22122端口和storage的23000端口，至此storage服务器就已经配置完成，确定了storage服务器启动成功后，还有一项工作就是看看storage服务器是否已经登记到 tracker服务器（也可以理解为tracker与storage是否整合成功），运行以下命令：
@@ -180,7 +180,7 @@ service fdfs_storaged start
 /usr/bin/fdfs_monitor /etc/fdfs/storage.conf
 ```
 
-![这里写图片描述](http://img.blog.csdn.net/20170507220206297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507220206297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(8)</center>
 
 如图(8)所示，看到10.211.55.5 ACTIVE 字样即可说明storage服务器已经成功登记到了tracker服务器，同理别忘了添加开机启动，打开/etc/rc.d/rc.local并将如下配置追加到文件中：
@@ -209,12 +209,12 @@ http.tracker_server_port=6666 # tracker 服务器的 http 端口号，必须和t
 
 运行后可以发现给我们返回了一个路径： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507220534068?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507220534068?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(9)</center>
 
 这就表示我们的文件已经上传成功了，当文件存储到某个子目录后，即认为该文件存储成功，接下来会为该文件生成一个文件名，文件名由group、存储目录、两级子目录、fileid、文件后缀名（由客户端指定，主要用于区分文件类型）拼接而成，我们到对应目录下也能找到对应的文件：
 
-![这里写图片描述](http://img.blog.csdn.net/20170507220639994?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507220639994?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(10)</center>
 
 但是此时并不能通过http访问，因为FastDFS目前已不支持http协议，所以此处在nginx上使用FastDFS的模块fastdfs-nginx-module，这样做最大的好处就是提供了HTTP服务并且解决了group中storage服务器的同步延迟问题，接下来就具体记录一下fastdfs-nginx-module的安装配置过程。
@@ -243,7 +243,7 @@ unzip fastdfs-nginx-module-master.zip
 ```
 配置成功后会看到如下信息：
 
-![这里写图片描述](http://img.blog.csdn.net/20170507221101059?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507221101059?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(11)</center>
 
 紧接着就可以进行编译安装了，依次执行以下命令：
@@ -321,12 +321,12 @@ ln  -s  /opt/fastdfs_storage_data/data  /opt/fastdfs_storage_data/data/M00
 ```
 显示如下信息说明nginx已启动成功：
 
-![这里写图片描述](http://img.blog.csdn.net/20170507222322939?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507222322939?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(12)</center>
 
 通过浏览器也可以看到nginx的主页： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507222412640?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507222412640?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(13)</center>
 
 如果访问不了，先ping一下自己的ip，如果能ping通，说明是防火墙的问题，在防火墙上打开对应端口就可以了：
@@ -380,12 +380,12 @@ http.tracker_server_port=6666  # tracker 服务器的 http 端口号，必须和
 再给/opt目录下上传一张图片（timg.jpg）
 通过客户端命令测试上传： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507225818348?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507225818348?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(14)</center>
 
 如图（14），依旧上传成功，接下来的关键就是通过HTTP测试文件访问，打开浏览器输入ip地址+文件名看看是否能正常访问该图片： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507225927208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20170507225927208?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 <center>图(15)</center>
 
 一切正常~ 至此关于FastDFS在CentOS 7下的部署测试就已经全部完成了。
