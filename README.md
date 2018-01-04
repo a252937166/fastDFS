@@ -166,7 +166,7 @@ service fdfs_storaged start
 ```
 如果启动成功，/opt/fastdfs_storage中就可以看到启动后新生成的data和logs目录
 
-![这里写图片描述](http://img.blog.csdn.net/20170507215949302?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/)
+![这里写图片描述](http://img.blog.csdn.net/20170507215949302?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 <center>图(6)</center>
 
 如图(6)，没有任何问题，data下有256个1级目录，每级目录下又有256个2级子目录，总共65536个文件，新写的文件会以hash的方式被路由到其中某个子目录下，然后将文件数据直接作为一个本地文件存储到该目录中。那么最后我们再看一下storage服务的端口监听情况：
