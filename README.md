@@ -180,7 +180,7 @@ service fdfs_storaged start
 /usr/bin/fdfs_monitor /etc/fdfs/storage.conf
 ```
 
-![这里写图片描述](http://img.blog.csdn.net/20170507220206297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![这里写图片描述](http://img.blog.csdn.net/20170507220206297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity)
 <center>图(8)</center>
 
 如图(8)所示，看到10.211.55.5 ACTIVE 字样即可说明storage服务器已经成功登记到了tracker服务器，同理别忘了添加开机启动，打开/etc/rc.d/rc.local并将如下配置追加到文件中：
