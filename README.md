@@ -322,11 +322,13 @@ ln  -s  /opt/fastdfs_storage_data/data  /opt/fastdfs_storage_data/data/M00
 显示如下信息说明nginx已启动成功：
 
 ![这里写图片描述](http://img.blog.csdn.net/20170507222322939?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
 <center>图(12)</center>
 
 通过浏览器也可以看到nginx的主页： 
 
-![这里写图片描述](http://img.blog.csdn.net/20170507222412640?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![这里写图片描述](http://img.blog.csdn.net/20170507222412640?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvTXJfT09P/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
 <center>图(13)</center>
 
 如果访问不了，先ping一下自己的ip，如果能ping通，说明是防火墙的问题，在防火墙上打开对应端口就可以了：
